@@ -1,4 +1,4 @@
-https://lightoj.com/problem/new-traffic-system
+// https://lightoj.com/problem/new-traffic-system
 
 #include<bits/stdc++.h>
 using namespace std;

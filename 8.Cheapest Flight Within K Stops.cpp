@@ -1,8 +1,4 @@
-https://leetcode.com/problems/cheapest-flights-within-k-stops/description/
-
-///   ***   ---   |||		 In the name of ALLAH		|||   ---   ***   ///
-
-
+// https://leetcode.com/problems/cheapest-flights-within-k-stops/description/
 
 #include<bits/stdc++.h>
 using namespace std;

@@ -1,4 +1,4 @@
-https://lightoj.com/problem/toll-management
+// https://lightoj.com/problem/toll-management
 
 #include<bits/stdc++.h>
 using namespace std;
