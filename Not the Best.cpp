@@ -1,8 +1,6 @@
 // https://lightoj.com/problem/not-the-best
 
 
-///   ***   ---   |||		 In the name of ALLAH		|||   ---   ***   ///
-
 #include<bits/stdc++.h>
 using namespace std;
 

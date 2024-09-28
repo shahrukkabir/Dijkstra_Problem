@@ -3,24 +3,26 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define F first
-#define S second
-typedef long long ll;
-typedef pair<ll, ll> pll;
-typedef vector<pll> vll; 
-const ll infLL = 9000000000000000000;
+#define    FAST            ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+#define    nl              '\n'
+#define    F               first
+#define    S               second
+typedef    long long       ll;
+typedef    vector<ll>      vll;
+typedef    pair<ll, ll>    pll;
+typedef    vector<pll>     vpl;                       
+const      int             mx = 1e5+123;
 
-const int mx = 1e5 + 123;
 vector<pair<int, int>> adj[mx];
 ll dist[mx];
 
 void dijkstra(int s, int n) {
     for (int i = 0; i <= n; i++) {
-        dist[i] = infLL;
+        dist[i] = LONG_MAX;
     }
     dist[s] = 0;
 
-    priority_queue<pll, vll, greater<pll>> pq;
+    priority_queue<pll, vpl, greater<pll>> pq;
     pq.push({0, s});
     while (!pq.empty()) {
         int u = pq.top().S;
@@ -52,7 +54,7 @@ public:
         dijkstra(k, n);
         ll mx = -1;
         for (int i = 1; i <= n; i++) {
-            if (dist[i] == infLL) {
+            if (dist[i] == LONG_MAX) {
                 return -1;
             }
             mx = max(mx, dist[i]);

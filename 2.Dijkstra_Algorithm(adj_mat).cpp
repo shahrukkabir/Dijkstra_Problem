@@ -10,23 +10,26 @@
 
 // 2   6  3  0
 
+#include<bits/stdc++.h>
+using namespace std;
+
 class Solution
 {
 	public:
     vector<int> dijkstra(int V, vector<vector<int>> adj[], int S)
     {
-        vector<int> dist(V, INT_MAX);            // Initialize distances with infinity
-        dist[S] = 0;                             // Distance from source to itself is 0
+        vector<int> dist(V, INT_MAX);           
+        dist[S] = 0;                             
         
         priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
-        pq.push({0, S});                         // {distance, node}
+        pq.push({0, S});                         
         
         while (!pq.empty()) {
             int u = pq.top().second;
             int currD = pq.top().first;
             pq.pop();
             
-            if (currD > dist[u])               // Skip if this node has been processed with a shorter distance
+            if (currD > dist[u])               
                 continue;
             
             for (auto p : adj[u]) {

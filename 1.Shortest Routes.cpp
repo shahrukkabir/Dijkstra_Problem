@@ -3,39 +3,40 @@
 #include <bits/stdc++.h>
 using namespace std;
  
-#define FAST ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
-#define nl '\n'
-#define F first
-#define S second
-typedef long long ll;
-typedef pair<ll, ll> pll;
-typedef vector<pll> vll; 
-const ll infLL = 9000000000000000000;
-                                                      //T.C : O( E + V*log2(n) )
+#define    FAST            ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+#define    nl              '\n'
+#define    F               first
+#define    S               second
+typedef    long long       ll;
+typedef    vector<ll>      vll;
+typedef    pair<ll, ll>    pll;
+typedef    vector<pll>     vpl;                       
+const      int             mx = 1e5+123;
+                                                      
 const int mx = 1e5 + 123;
 vector<pair<int, int>> adj[mx];
 ll dist[mx];
  
 void dijkstra(int s, int n) {
     for (int i = 0; i <= n; i++) {
-        dist[i] = infLL;                              //initialization
+        dist[i] = LONG_MAX;                              
     }
-    dist[s] = 0;                                      // initializing source distance   
+    dist[s] = 0;                                       
  
-    priority_queue<pll, vll, greater<pll>> pq;        // sort small to big
-    pq.push({0, s});                                  // {dist, node}
+    priority_queue<pll, vpl, greater<pll>> pq;        
+    pq.push({0, s});                                 
     while (!pq.empty()) {
-        int u = pq.top().S;                           // u -> node
-        ll currD = pq.top().F;                        // currD -> dist
+        int u = pq.top().S;                          
+        ll currD = pq.top().F;                      
         pq.pop();
-        if (dist[u] < currD) {                        // dis[u] -> previous distance
+        if (dist[u] < currD) {                     
             continue;
         }
-        for (auto p : adj[u]) {                      // p -> {node, cost}
-            int v = p.F;                             // v -> node 
-            ll  w = p.S;                             // w -> cost
-            if (currD + w < dist[v]) {               // currD + w -> go to node v
-                dist[v] = currD + w;                 // relaxation
+        for (auto p : adj[u]) {                   
+            int v = p.F;                            
+            ll  w = p.S;                          
+            if (currD + w < dist[v]) {             
+                dist[v] = currD + w;                 
                 pq.push({dist[v], v});
             }
         }
@@ -51,7 +52,6 @@ int main() {
         int u, v, w;
         cin >> u >> v >> w;
         adj[u].push_back({v, w});
-        // adj[v].push_back({u, w});
     }
  
     dijkstra(1, n);

@@ -1,5 +1,7 @@
 // https://www.geeksforgeeks.org/problems/minimum-cost-path3833/1
 
+#include<bits/stdc++.h>
+using namespace std;
 
 class Solution {
 public:
@@ -7,8 +9,7 @@ public:
 
         int n = grid.size();
         
-        vector<vector<long long>> dist(n, vector<long long>(n, LLONG_MAX));
-        
+        vector<vector<long long>> dist(n, vector<long long>(n, LONG_MAX));        
         priority_queue<pair<long long, pair<int, int>>, vector<pair<long long, pair<int, int>>>, greater<pair<long long, pair<int, int>>>> pq;
 
         dist[0][0] = grid[0][0];
