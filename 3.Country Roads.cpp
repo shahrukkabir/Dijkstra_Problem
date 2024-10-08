@@ -74,24 +74,24 @@ int main() {
     
      int t; cin>>t; 
      for(ll i=1;i<=t;i++){
-      cout<<"Case "<<i<<":"<<nl;
-      int n,m; cin>>n>>m;
-      for(int i=0;i<n;i++) adj[i].clear();
-      while(m--){
-        int u,v,w; cin>>u>>v>>w;
-        adj[u].pb({v,w});
-        adj[v].pb({u,w});
-      }
-      int d; cin>>d;
-      dijkstra(d,n);
-      for(int i=0;i<n;i++){
-        if(dist[i]==LLONG_MAX){
-          cout<<"Impossible"<<nl;
+        cout<<"Case "<<i<<":"<<nl;
+        int n,m; cin>>n>>m;
+        for(int i=0;i<n;i++) adj[i].clear();
+        while(m--){
+          int u,v,w; cin>>u>>v>>w;
+          adj[u].pb({v,w});
+          adj[v].pb({u,w});
         }
-        else{
-          cout<<dist[i]<<nl;
+        int d; cin>>d;
+        dijkstra(d,n);
+        for(int i=0;i<n;i++){
+          if(dist[i]==LLONG_MAX){
+            cout<<"Impossible"<<nl;
+          }
+          else{
+            cout<<dist[i]<<nl;
+          }
         }
-      }
      }
     
     
